@@ -37,7 +37,7 @@ public class RoomTestRM {
 	}
 	
 	@Test
-	public void testSorthExit()
+	public void testSouthExit()
 	{
 		Room r = new Room(false, false, false, false, true);
 		assertEquals(true, r.southExit());
