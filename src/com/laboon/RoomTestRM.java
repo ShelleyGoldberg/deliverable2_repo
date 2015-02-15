@@ -9,6 +9,20 @@ import org.mockito.*;
 public class RoomTestRM {
 	
 	@Test
+	public void testRoomCreation()
+	{
+		Room r = new Room(false, false, false, false, false);
+		assertNotNull(r);		
+	}
+	
+	@Test
+	public void testRoomEqualsRoom()
+	{
+		Room r = new Room(false, false, false, false, false);
+		assertEquals(r, r);
+	}
+	
+	@Test
 	public void testWithSugar()
 	{
 		Room r = new Room(false, false, true, false, false);
@@ -48,6 +62,28 @@ public class RoomTestRM {
 	{
 		Room r = new Room(true, true, true, true, false);
 		assertEquals(false, r.southExit());		
+	}
+	
+	@Test
+	public void testDescNorth()
+	{
+		Room r = new Room(false, false, false, true, false);
+		assertTrue(r.getDescription().contains("door leads North"));		
+	}
+	
+	@Test
+	public void testDescSouth()
+	{
+		Room r = new Room(false, false, false, false, true);
+		assertTrue(r.getDescription().contains("door leads South"));
+	}
+	
+	@Test
+	public void testDescNorthAndSouth()
+	{
+		Room r = new Room(false, false, false, true, true);
+		assertTrue(r.getDescription().contains("door leads North"));
+		assertTrue(r.getDescription().contains("door leads South"));
 	}
 	
 }
