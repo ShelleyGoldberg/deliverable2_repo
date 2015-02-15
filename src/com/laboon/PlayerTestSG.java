@@ -35,4 +35,39 @@ public class PlayerTestSG {
 		Player play= new Player(true, true, false);
 		assertFalse(play.hasAllItems());
 	}
+	
+	@Test
+	public void testAllItems(){
+		Player play = new Player(true, true, true);
+		assertTrue(play.hasAllItems());
+	}
+	@Test
+	public void testAllItemsDrink(){
+		Player play = new Player(true, true, true);
+		//Mockito.doNothing().when(play).showInventory();
+		assertTrue(play.drink());		
+	}
+	@Test
+	public void testNoItemsDrink() {
+		Player play= new Player(true, true, true);
+		assertTrue(play.hasAllItems());
+	}
+	
+	@Test
+	public void testNoSugarDrink() {
+		Player play= new Player(false, true, true);
+		assertFalse(play.hasAllItems());
+	}
+	
+	@Test
+	public void testNoCreamDrink() {
+		Player play= new Player(true, false, true);
+		assertFalse(play.hasAllItems());
+	}
+	@Test
+	public void testNoCoffeeDrink() {
+		Player play= new Player(true, true, false);
+		assertFalse(play.hasAllItems());
+	}
+	
 }
